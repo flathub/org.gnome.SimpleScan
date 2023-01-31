@@ -13,7 +13,7 @@
         "--device=all",
         "--share=network",
         "--system-talk-name=org.freedesktop.Avahi",
-	"--env=SANE_CONFIG_DIR=/app/etc/sane.d"
+        "--env=SANE_CONFIG_DIR=/app/etc/sane.d"
     ],
     "cleanup": [
         "/include",
@@ -30,19 +30,19 @@
         "*.a"
     ],
     "modules": [
-		"shared-modules/libusb/libusb.json",
+        "shared-modules/libusb/libusb.json",
         {
             "name": "libgusb",
             "buildsystem": "meson",
-			"config-opts": [
+            "config-opts": [
                 "-Ddocs=false"
             ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/hughsie/libgusb.git",
-                    "commit": "f79cb57e03a7111bde4c019ca3132160bbe97d3e",
-                    "tag": "0.4.3",
+                    "commit": "bafd4d33dccc37c9fed220935f89f077cfaf2353",
+                    "tag": "0.4.4",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -155,10 +155,10 @@
                         "tag-pattern": "^([\\d.]+)$"
                     }
                 },
-				{
-					"type": "patch",
-					"path": "patches/0001-data-update-appdata-name.patch"
-				}
+                {
+                    "type": "patch",
+                    "path": "patches/0001-data-update-appdata-name.patch"
+                }
             ]
         }
     ]
