@@ -12,7 +12,8 @@
         "--socket=wayland",
         "--device=all",
         "--share=network",
-        "--system-talk-name=org.freedesktop.Avahi"
+        "--system-talk-name=org.freedesktop.Avahi",
+	"--env=SANE_CONFIG_DIR=/app/etc/sane.d"
     ],
     "cleanup": [
         "/include",
