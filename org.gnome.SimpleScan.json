@@ -1,5 +1,5 @@
 {
-    "app-id": "org.gnome.SimpleScan",
+    "id": "org.gnome.SimpleScan",
     "runtime": "org.gnome.Platform",
     "runtime-version": "43",
     "sdk": "org.gnome.Sdk",
@@ -13,7 +13,7 @@
         "--device=all",
         "--share=network",
         "--system-talk-name=org.freedesktop.Avahi",
-	"--env=SANE_CONFIG_DIR=/app/etc/sane.d"
+        "--env=SANE_CONFIG_DIR=/app/etc/sane.d"
     ],
     "cleanup": [
         "/include",
@@ -41,8 +41,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/hughsie/libgusb.git",
-                    "commit": "bafd4d33dccc37c9fed220935f89f077cfaf2353",
-                    "tag": "0.4.4",
+                    "commit": "cfe6865211bc241fe5e10b999bc0e27e7bddcb84",
+                    "tag": "0.4.5",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -57,8 +57,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/sane-project/backends.git",
-                    "commit": "332edc8b7ce642bb06132cf204a8c2dd57720bce",
-                    "tag": "1.1.1",
+                    "commit": "103c2b5d8e6d4e43026e90c5fb3b6b6a19cd5ee5",
+                    "tag": "1.2.1",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -148,8 +148,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/simple-scan.git",
-                    "commit": "a7add634a357caf31e08631d63c29f1d63340934",
-                    "tag": "42.5",
+                    "commit": "85794e3a443f3817c60f4466ebcbc107d8a63a77",
+                    "tag": "44.0",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
