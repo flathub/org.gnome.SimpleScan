@@ -41,8 +41,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/hughsie/libgusb.git",
-                    "commit": "cfe6865211bc241fe5e10b999bc0e27e7bddcb84",
-                    "tag": "0.4.5",
+                    "commit": "03ba6c83de960fbe5aad13a0d0e2d16e2eca771a",
+                    "tag": "0.4.6",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
