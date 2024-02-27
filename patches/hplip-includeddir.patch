@@ -1,0 +1,112 @@
+From a03cbb64a227787e2c4dbbc5f683880281e9e7dc Mon Sep 17 00:00:00 2001
+From: bbhtt <bbhtt.zn0i8@slmail.me>
+Date: Tue, 27 Feb 2024 09:35:16 +0530
+Subject: [PATCH] Point includeddir to `/app` prefix for flatpak
+
+---
+ Makefile.am               | 12 ++++++------
+ Makefile.in               | 12 ++++++------
+ 4 files changed, 24 insertions(+), 24 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index b77327f..152d723 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -88,7 +88,7 @@ if NETWORK_BUILD
+ lib_LTLIBRARIES += libhpdiscovery.la
+ #libhpdiscovery_la_SOURCES = protocol/discovery/mdns.c protocol/discovery/mdns.h
+ libhpdiscovery_la_SOURCES = protocol/discovery/avahiDiscovery.c protocol/discovery/avahiDiscovery.h
+-libhpdiscovery_la_CFLAGS  = -DCONFDIR=\"$(hplip_confdir)\" -I/usr/include/avahi-client -I/usr/include/avahi-core -I/usr/include/avahi-common $(DBUS_CFLAGS)
++libhpdiscovery_la_CFLAGS  = -DCONFDIR=\"$(hplip_confdir)\" -I/app/include/avahi-client -I/app/include/avahi-core -I/app/include/avahi-common $(DBUS_CFLAGS)
+ libhpdiscovery_la_LDFLAGS = -version-info 0:1:0 -L$(libdir)
+ libhpdiscovery_la_LIBADD  = -l$(SNMPLIB) -lcrypto -lavahi-client -lavahi-core -lavahi-common $(DBUS_LIBS)
+ endif #NETWORK_BUILD
+@@ -110,7 +110,7 @@ libhpmud_la_SOURCES += io/hpmud/musb_libusb01.c
+ libhpmud_la_LDFLAGS += -lusb
+ else
+ libhpmud_la_SOURCES += io/hpmud/musb.c 
+-libhpmud_la_CFLAGS  += -I/usr/include/libusb-1.0
++libhpmud_la_CFLAGS  += -I/app/include/libusb-1.0
+ libhpmud_la_LDFLAGS += -lusb-1.0
+ endif
+ 
+@@ -132,12 +132,12 @@ libhpip_la_SOURCES = ip/xconvolve.c ip/xfax.c ip/xgrayout.c ip/xjpg_dct.c ip/xjp
+ 	ip/hpip.h ip/ipdefs.h ip/xform.h ip/xjpg_dct.h ip/xjpg_huf.h ip/xjpg_mrk.h
+ 
+ #hpmud rules data dir
+-rulessystemdir=/usr/lib/systemd/system
++rulessystemdir=/app/lib/systemd/system
+ dist_rulessystem_DATA =data/rules/hplip-printer@.service
+ 
+ # hpmud.rules
+ if !HPLIP_CLASS_DRIVER
+-rulesdir = /etc/udev/rules.d
++rulesdir = /app/etc/udev/rules.d
+ if UDEV_SYSFS_RULES
+ dist_rules_DATA = data/rules/56-hpmud_sysfs.rules
+ else
+@@ -145,7 +145,7 @@ dist_rules_DATA = data/rules/56-hpmud.rules
+ endif
+ endif #HPLIP_CLASS_DRIVER
+ 
+-halpredir = /usr/share/hal/fdi/preprobe/10osvendor
++halpredir = /app/share/hal/fdi/preprobe/10osvendor
+ dist_halpre_DATA = data/rules/20-hplip-devices.fdi
+ 
+ # hplip.conf
+@@ -365,7 +365,7 @@ hpmudext_la_CFLAGS += -Iprotocol/discovery
+ endif
+ 
+ if !LIBUSB01_BUILD
+-hpmudext_la_CFLAGS +=-I/usr/include/libusb-1.0 
++hpmudext_la_CFLAGS +=-I/app/include/libusb-1.0
+ endif
+ endif #!HPLIP_CLASS_DRIVER
+ # ui (qt3)
+diff --git a/Makefile.in b/Makefile.in
+index a4972f7..8ccf41b 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -113,7 +113,7 @@ DIST_COMMON = $(am__configure_deps) \
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@LIBUSB01_BUILD_TRUE@am__append_5 = io/hpmud/musb_libusb01.c 
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@LIBUSB01_BUILD_TRUE@am__append_6 = -lusb
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@LIBUSB01_BUILD_FALSE@am__append_7 = io/hpmud/musb.c 
+-@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@LIBUSB01_BUILD_FALSE@am__append_8 = -I/usr/include/libusb-1.0
++@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@LIBUSB01_BUILD_FALSE@am__append_8 = -I/app/include/libusb-1.0
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@LIBUSB01_BUILD_FALSE@am__append_9 = -lusb-1.0
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@NETWORK_BUILD_TRUE@am__append_10 = -Iprotocol/discovery
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@NETWORK_BUILD_TRUE@am__append_11 = -l$(SNMPLIB) -lcrypto
+@@ -142,7 +142,7 @@ DIST_COMMON = $(am__configure_deps) \
+ @FULL_BUILD_TRUE@@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@am__append_17 = libhpipp.la
+ @FULL_BUILD_TRUE@@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@NETWORK_BUILD_TRUE@am__append_18 = libhpdiscovery.la
+ @FULL_BUILD_TRUE@@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@NETWORK_BUILD_TRUE@am__append_19 = -Iprotocol/discovery
+-@FULL_BUILD_TRUE@@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@LIBUSB01_BUILD_FALSE@am__append_20 = -I/usr/include/libusb-1.0 
++@FULL_BUILD_TRUE@@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@LIBUSB01_BUILD_FALSE@am__append_20 = -I/app/include/libusb-1.0
+ @FULL_BUILD_TRUE@@GUI_BUILD_TRUE@@HPLIP_BUILD_TRUE@@QT3_INSTALL_TRUE@am__append_21 = ui/colorcalform2_base.ui ui/settingsdialog_base.ui ui/aligntype6form1_base.ui \
+ @FULL_BUILD_TRUE@@GUI_BUILD_TRUE@@HPLIP_BUILD_TRUE@@QT3_INSTALL_TRUE@	ui/aboutdlg_base.ui ui/imagepropertiesdlg_base.ui ui/paperedgealignform_base.ui ui/aligntype6form2_base.ui \
+ @FULL_BUILD_TRUE@@GUI_BUILD_TRUE@@HPLIP_BUILD_TRUE@@QT3_INSTALL_TRUE@	ui/nodevicesform_base.ui ui/cleaningform_base.ui ui/colorcalform_base.ui ui/devmgr4_base.ui ui/loadpaperform_base.ui \
+@@ -4858,7 +4858,7 @@ dist_unrel_DATA =
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@SCAN_BUILD_TRUE@	$(am__append_2)
+ #libhpdiscovery_la_SOURCES = protocol/discovery/mdns.c protocol/discovery/mdns.h
+ @HPLIP_BUILD_TRUE@@NETWORK_BUILD_TRUE@libhpdiscovery_la_SOURCES = protocol/discovery/avahiDiscovery.c protocol/discovery/avahiDiscovery.h
+-@HPLIP_BUILD_TRUE@@NETWORK_BUILD_TRUE@libhpdiscovery_la_CFLAGS = -DCONFDIR=\"$(hplip_confdir)\" -I/usr/include/avahi-client -I/usr/include/avahi-core -I/usr/include/avahi-common $(DBUS_CFLAGS)
++@HPLIP_BUILD_TRUE@@NETWORK_BUILD_TRUE@libhpdiscovery_la_CFLAGS = -DCONFDIR=\"$(hplip_confdir)\" -I/app/include/avahi-client -I/app/include/avahi-core -I/app/include/avahi-common $(DBUS_CFLAGS)
+ @HPLIP_BUILD_TRUE@@NETWORK_BUILD_TRUE@libhpdiscovery_la_LDFLAGS = -version-info 0:1:0 -L$(libdir)
+ @HPLIP_BUILD_TRUE@@NETWORK_BUILD_TRUE@libhpdiscovery_la_LIBADD = -l$(SNMPLIB) -lcrypto -lavahi-client -lavahi-core -lavahi-common $(DBUS_LIBS)
+ 
+@@ -4907,14 +4907,14 @@ dist_unrel_DATA =
+ 
+ 
+ #hpmud rules data dir
+-@HPLIP_BUILD_TRUE@rulessystemdir = /usr/lib/systemd/system
++@HPLIP_BUILD_TRUE@rulessystemdir = /app/lib/systemd/system
+ @HPLIP_BUILD_TRUE@dist_rulessystem_DATA = data/rules/hplip-printer@.service
+ 
+ # hpmud.rules
+-@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@rulesdir = /etc/udev/rules.d
++@HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@rulesdir = /app/etc/udev/rules.d
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@UDEV_SYSFS_RULES_FALSE@dist_rules_DATA = data/rules/56-hpmud.rules
+ @HPLIP_BUILD_TRUE@@HPLIP_CLASS_DRIVER_FALSE@@UDEV_SYSFS_RULES_TRUE@dist_rules_DATA = data/rules/56-hpmud_sysfs.rules
+-@HPLIP_BUILD_TRUE@halpredir = /usr/share/hal/fdi/preprobe/10osvendor
++@HPLIP_BUILD_TRUE@halpredir = /app/share/hal/fdi/preprobe/10osvendor
+ @HPLIP_BUILD_TRUE@dist_halpre_DATA = data/rules/20-hplip-devices.fdi

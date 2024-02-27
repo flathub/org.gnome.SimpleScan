@@ -17,9 +17,17 @@
     ],
     "cleanup": [
         "/include",
+        "/lib/cmake",
+        "/lib/dbus-1.0/include",
+        "/lib/systemd",
+        "/lib/sysusers.d",
+        "/lib/tmpfiles.d",
         "/lib/pkgconfig",
+        "/etc/dbus-1",
+        "/etc/udev",
         "/man",
         "/share/aclocal",
+        "/share/doc",
         "/share/gir-1.0",
         "/share/girepository-1",
         "/share/gtk-doc",
@@ -43,22 +51,6 @@
                     "url": "https://github.com/hughsie/libgusb.git",
                     "commit": "ea074426660eb78199106767d826db9ea0fc8734",
                     "tag": "0.4.8",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^([\\d.]+)$"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "sane-backends",
-            "buildsystem": "autotools",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.com/sane-project/backends.git",
-                    "commit": "103c2b5d8e6d4e43026e90c5fb3b6b6a19cd5ee5",
-                    "tag": "1.2.1",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -126,6 +118,120 @@
             ]
         },
         {
+            "name": "libgphoto2",
+            "builddir": true,
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/gphoto/libgphoto2.git",
+                    "tag": "v2.5.31",
+                    "commit": "ba28af2d22fd4cb7fa76a8ff569ba498e8021db5"
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "autogen.sh",
+                    "commands": [
+                        "AUTOMAKE=\"automake --foreign\" autoreconf -vfis"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "libieee1284",
+            "config-opts": [
+                "--disable-static",
+                "--without-python"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/project/libieee1284/libieee1284/0.2.11//libieee1284-0.2.11.tar.bz2",
+                    "sha256": "7730de107782e5d2b071bdcb5b06a44da74856f00ef4a9be85d1ba4806a38f1a"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "v4l-utils",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dudevdir=/app/lib/udev",
+                "-Dsystemdsystemunitdir=/app/lib/systemd"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://linuxtv.org/downloads/v4l-utils/v4l-utils-1.26.1.tar.xz",
+                    "sha256": "4a71608c0ef7df2931176989e6d32b445c0bdc1030a2376d929c8ca6e550ec4e"
+                }
+            ]
+        },
+        {
+            "name" : "poppler-data",
+            "builddir" : true,
+            "buildsystem" : "cmake-ninja",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://poppler.freedesktop.org/poppler-data-0.4.12.tar.gz",
+                    "sha256" : "c835b640a40ce357e1b83666aabd95edffa24ddddd49b8daff63adb851cdab74"
+                }
+            ]
+        },
+        {
+            "name" : "poppler-glib",
+            "builddir" : true,
+            "buildsystem" : "cmake-ninja",
+            "config-opts" : [
+                "-DENABLE_LIBTIFF=ON",
+                "-DENABLE_LIBPNG=ON",
+                "-DENABLE_GLIB=ON",
+                "-DENABLE_LIBOPENJPEG='openjpeg2'",
+                "-DENABLE_DCTDECODER='libjpeg'",
+                "-DENABLE_BOOST=OFF",
+                "-DENABLE_CPP=OFF",
+                "-DENABLE_QT5=OFF",
+                "-DENABLE_QT6=OFF"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://poppler.freedesktop.org/poppler-24.02.0.tar.xz",
+                    "sha256" : "19187a3fdd05f33e7d604c4799c183de5ca0118640c88b370ddcf3136343222e"
+                }
+            ]
+        },
+        {
+            "name": "sane-backends",
+            "buildsystem": "autotools",
+            "config-opts": [
+                "--with-avahi",
+                "--with-libcurl",
+                "--with-pic",
+                "--with-poppler-glib",
+                "--with-systemd",
+                "--with-usb",
+                "--sbindir=/app/bin"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.com/sane-project/backends.git",
+                    "commit": "103c2b5d8e6d4e43026e90c5fb3b6b6a19cd5ee5",
+                    "tag": "1.2.1",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^([\\d.]+)$"
+                    }
+                }
+            ]
+        },
+        {
             "name": "sane-airscan",
             "buildsystem": "meson",
             "sources": [
@@ -138,6 +244,95 @@
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
                     }
+                }
+            ]
+        },
+        {
+            "name": "hplip",
+            "config-opts": [
+                "--disable-static",
+                "--disable-doc-build",
+                "--disable-qt4",
+                "--disable-gui-build",
+                "--disable-fax-build",
+                "--disable-imageProcessor-build",
+                "--enable-pp-build",
+                "--enable-lite-build",
+                "--with-cupsfilterdir=/app/lib/cups/filter",
+                "--with-cupsbackenddir=/app/lib/cups/backend"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.23.12.tar.gz",
+                    "sha256": "a76c2ac8deb31ddb5f0da31398d25ac57440928a0692dcb060a48daa718e69ed"
+
+                },
+                {
+                    "type": "patch",
+                    "paths": [
+                        "patches/hplip-includeddir.patch",
+                        "patches/hplip-disable-image-processor.patch"
+                    ]
+                }
+            ],
+            "post-install": [
+                "install -Dm0644 \"hplip.conf\" -t \"${FLATPAK_DEST}/etc/hp/\"",
+                "echo 'hpaio' > \"hpaio\" && install -Dm0644 \"hpaio\" -t \"${FLATPAK_DEST}/etc/sane.d/dll.d/\""
+            ],
+            "modules": [
+                {
+                    "name": "net-snmp",
+                    "builddir": true,
+                    "no-parallel-make": true,
+                    "config-opts": [
+                        "--disable-static",
+                        "--enable-shared",
+                        "--disable-embedded-perl",
+                        "--without-perl-modules",
+                        "--without-rpm",
+                        "--enable-ucd-snmp-compatibility",
+                        "--enable-ipv6",
+                        "--with-openssl",
+                        "--with-pic",
+                        "--with-default-snmp-version=3",
+                        "--with-sys-contact=root@localhost",
+                        "--sbindir=/app/bin"
+                    ],
+                    "build-options": {
+                        "ldflags": "-lncurses -ltinfo"
+                    },
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.4/net-snmp-5.9.4.tar.gz",
+                            "sha256": "8b4de01391e74e3c7014beb43961a2d6d6fa03acc34280b9585f4930745b0544"
+                        },
+                        {
+                            "type": "shell",
+                            "commands": [
+                                "cp -p /usr/share/automake-*/config.{sub,guess} ."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "dbus",
+                    "config-opts": [
+                        "--with-systemdsystemunitdir=''",
+                        "--libexecdir=/app/bin"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://gitlab.freedesktop.org/dbus/dbus/-/archive/dbus-1.14.10/dbus-dbus-1.14.10.tar.gz",
+                            "sha256": "5fedcd6c17fbc62646af224e1aab11a334c463e7e7d89163a670ed24e7ab241c"
+                        }
+                    ],
+                    "post-install": [
+                        "cp -ra ${FLATPAK_DEST}/include/dbus-1.0/dbus ${FLATPAK_DEST}/include",
+                        "cp ${FLATPAK_DEST}/lib/dbus-1.0/include/dbus/dbus-arch-deps.h ${FLATPAK_DEST}/include/dbus"
+                    ]
                 }
             ]
         },
