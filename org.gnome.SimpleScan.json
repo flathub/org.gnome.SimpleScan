@@ -4,7 +4,6 @@
     "runtime-version": "45",
     "sdk": "org.gnome.Sdk",
     "rename-desktop-file": "simple-scan.desktop",
-    "rename-appdata-file": "simple-scan.appdata.xml",
     "command": "simple-scan",
     "finish-args": [
         "--share=ipc",
@@ -154,10 +153,6 @@
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/0001-data-update-appdata-name.patch"
                 }
             ]
         }
