@@ -66,6 +66,33 @@
             ]
         },
         {
+            "name": "net-snmp",
+            "no-parallel-make": true,
+            "config-opts": [
+                "--disable-static",
+                "--disable-embedded-perl",
+                "--without-perl-modules",
+                "--without-rpm",
+                "--enable-ucd-snmp-compatibility",
+                "--enable-ipv6",
+                "--enable-as-needed",
+                "--with-openssl",
+                "--with-pic",
+                "--with-default-snmp-version=3",
+                "--with-sys-contact=root@localhost"
+            ],
+            "build-options": {
+                "ldflags": "-lncurses -ltinfo"
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/net-snmp/net-snmp-5.9.4.tar.gz",
+                    "sha256": "8b4de01391e74e3c7014beb43961a2d6d6fa03acc34280b9585f4930745b0544"
+                }
+            ]
+        },
+        {
             "name": "libevent",
             "sources": [
                 {
@@ -138,6 +165,76 @@
                         "tag-pattern": "^([\\d.]+)$"
                     }
                 }
+            ]
+        },
+        {
+            "name": "hpaio",
+            "config-opts": [
+                "--disable-static",
+                "--disable-doc-build",
+                "--disable-hpijs-install",
+                "--disable-hpcups-install",
+                "--disable-new-hpcups",
+                "--disable-hpps-install",
+                "--disable-gui-build",
+                "--disable-fax-build",
+                "--disable-cups11-build",
+                "--disable-foomatic-ppd-install",
+                "--disable-foomatic-drv-install",
+                "--disable-cups-drv-install",
+                "--disable-cups-ppd-install",
+                "--disable-foomatic-rip-hplip-install",
+                "--disable-qt3",
+                "--disable-qt4",
+                "--disable-qt5",
+                "--enable-dbus-build",
+                "--enable-network-build",
+                "--enable-pp-build",
+                "--enable-scan-build",
+                "--with-pic",
+                "--with-cupsfilterdir=/app/lib/cups/filter",
+                "--with-cupsbackenddir=/app/lib/cups/backend"
+            ],
+            "build-options": {
+                "cppflags": "-I/app/include/libusb-1.0"
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.23.12.tar.gz",
+                    "sha256": "a76c2ac8deb31ddb5f0da31398d25ac57440928a0692dcb060a48daa718e69ed"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "sed -i -re '/^[[:blank:]]*(@HPLIP_BUILD_TRUE@)?halpredir[[:blank:]]*=/s!/usr/share/!$(datadir)/!' Makefile*;",
+                        "sed -i -re '/^[[:blank:]]*(@HPLIP_BUILD_TRUE@)?rulessystemdir[[:blank:]]*=/s!/usr/lib/!$(libdir)/!' Makefile*;"
+                    ]
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "find * -xtype f | xargs -I{} grep -El '(^|[^A-Za-z)])\/etc' '{}' | xargs -I{} sed -i -re '\/(^|[^A-Za-z)])\\\/etc\/s!(\/etc)!\/app\\1!g' '{}';"
+                    ]
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "[ $(grep -c 'SAVE_CPPFLAGS=\"$CPPFLAGS\"' configure.in) -eq 1 ];",
+                        "sed -i -e 's/SAVE_CPPFLAGS=\"$CPPFLAGS\"/save_CFLAGS=\"$CFLAGS\"/' configure.in;"
+                    ]
+                }
+            ],
+            "post-install": [
+                "[ -f \"${FLATPAK_DEST}/etc/hp/hplip.conf\" ] || install -p -D \"hplip.conf\" -t \"${FLATPAK_DEST}/etc/hp/\";",
+                "echo 'hpaio' > hpaio && install -p -D hpaio -t \"${FLATPAK_DEST}/etc/sane.d/dll.d/\";"
+            ],
+            "modules": [
+                "shared-modules/python2.7/python-2.7.json"
+            ],
+            "cleanup": [
+                "/lib/cups",
+                "/share/ppd"
             ]
         },
         {
