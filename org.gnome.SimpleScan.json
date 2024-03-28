@@ -50,22 +50,6 @@
             ]
         },
         {
-            "name": "sane-backends",
-            "buildsystem": "autotools",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.com/sane-project/backends.git",
-                    "commit": "7088afe04dc83395af599b6c224b020a142e64d8",
-                    "tag": "1.3.0",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^([\\d.]+)$"
-                    }
-                }
-            ]
-        },
-        {
             "name": "net-snmp",
             "no-parallel-make": true,
             "config-opts": [
@@ -147,6 +131,22 @@
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "sane-backends",
+            "buildsystem": "autotools",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.com/sane-project/backends.git",
+                    "commit": "7088afe04dc83395af599b6c224b020a142e64d8",
+                    "tag": "1.3.0",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^([\\d.]+)$"
                     }
                 }
             ]
