@@ -88,7 +88,7 @@
                 {
                     "type": "archive",
                     "url": "https://downloads.sourceforge.net/net-snmp/net-snmp-5.9.4.tar.gz",
-                    "sha1": "c144409282ca90826af79b50ade1c2d78d330396"
+                    "sha256": "8b4de01391e74e3c7014beb43961a2d6d6fa03acc34280b9585f4930745b0544"
                 }
             ]
         },
@@ -202,7 +202,7 @@
                 {
                     "type": "archive",
                     "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.23.12.tar.gz",
-                    "sha1": "0e11916fc43a9c5d7fc1415844baca8ba44fbdd5"
+                    "sha256": "a76c2ac8deb31ddb5f0da31398d25ac57440928a0692dcb060a48daa718e69ed"
                 },
                 {
                     "type": "shell",
