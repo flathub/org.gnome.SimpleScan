@@ -208,7 +208,13 @@
                 {
                     "type": "archive",
                     "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.23.12.tar.gz",
-                    "sha256": "a76c2ac8deb31ddb5f0da31398d25ac57440928a0692dcb060a48daa718e69ed"
+                    "sha256": "a76c2ac8deb31ddb5f0da31398d25ac57440928a0692dcb060a48daa718e69ed",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 1327,
+                        "stable-only": true,
+                        "url-template": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-$version.tar.gz"
+                    }
                 },
                 {
                     "type": "shell",
