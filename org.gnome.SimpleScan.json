@@ -40,8 +40,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/hughsie/libgusb.git",
-                    "commit": "ea074426660eb78199106767d826db9ea0fc8734",
-                    "tag": "0.4.8",
+                    "commit": "ed31c8134d80d006bd45450e84180be2a7c0742e",
+                    "tag": "0.4.9",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -214,7 +214,7 @@
                 {
                     "type": "shell",
                     "commands": [
-                        "find * -xtype f | xargs -I{} grep -El '(^|[^A-Za-z)])\/etc' '{}' | xargs -I{} sed -i -re '\/(^|[^A-Za-z)])\\\/etc\/s!(\/etc)!\/app\\1!g' '{}';"
+                        "find * -xtype f | xargs -I{} grep -El '(^|[^A-Za-z)])/etc' '{}' | xargs -I{} sed -i -re '/(^|[^A-Za-z)])\\/etc/s!(/etc)!/app\\1!g' '{}';"
                     ]
                 },
                 {
