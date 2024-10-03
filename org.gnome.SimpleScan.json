@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.SimpleScan",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "46",
+    "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
     "rename-desktop-file": "simple-scan.desktop",
     "command": "simple-scan",
