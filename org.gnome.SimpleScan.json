@@ -217,6 +217,26 @@
                     }
                 },
                 {
+                    "type": "patch",
+                    "path": "hplip-scan-hpaio-include.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "hplip-hpaio-gcc14.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "hplip-scan-orblite-c99.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "hplip-covscan.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "hplip-pcardext-disable.patch"
+                },
+                {
                     "type": "shell",
                     "commands": [
                         "sed -i -re '/^[[:blank:]]*(@HPLIP_BUILD_TRUE@)?halpredir[[:blank:]]*=/s!/usr/share/!$(datadir)/!' Makefile*;",
