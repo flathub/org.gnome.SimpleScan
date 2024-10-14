@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.SimpleScan",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "46",
+    "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
     "rename-desktop-file": "simple-scan.desktop",
     "command": "simple-scan",
@@ -217,6 +217,10 @@
                     }
                 },
                 {
+                    "type": "patch",
+                    "path": "hplip-hpaio-gcc14.patch"
+                },
+                {
                     "type": "shell",
                     "commands": [
                         "sed -i -re '/^[[:blank:]]*(@HPLIP_BUILD_TRUE@)?halpredir[[:blank:]]*=/s!/usr/share/!$(datadir)/!' Makefile*;",
@@ -240,9 +244,6 @@
             "post-install": [
                 "[ -f \"${FLATPAK_DEST}/etc/hp/hplip.conf\" ] || install -p -D \"hplip.conf\" -t \"${FLATPAK_DEST}/etc/hp/\";",
                 "echo 'hpaio' > hpaio && install -p -D hpaio -t \"${FLATPAK_DEST}/etc/sane.d/dll.d/\";"
-            ],
-            "modules": [
-                "shared-modules/python2.7/python-2.7.json"
             ],
             "cleanup": [
                 "/lib/cups",
