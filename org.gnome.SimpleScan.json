@@ -262,10 +262,6 @@
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "simple-scan-Use-RDNN-app-ID.patch"
                 }
             ]
         }
