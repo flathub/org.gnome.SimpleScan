@@ -237,6 +237,10 @@
                     "path": "hplip-pcardext-disable.patch"
                 },
                 {
+                    "type": "patch",
+                    "path": "hplip-orblite-use-const.patch"
+                },
+                {
                     "type": "shell",
                     "commands": [
                         "sed -i -re '/^[[:blank:]]*(@HPLIP_BUILD_TRUE@)?halpredir[[:blank:]]*=/s!/usr/share/!$(datadir)/!' Makefile*;",
