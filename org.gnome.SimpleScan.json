@@ -218,27 +218,14 @@
                 },
                 {
                     "type": "patch",
-                    "path": "hplip-scan-hpaio-include.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "hplip-hpaio-gcc14.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "hplip-scan-orblite-c99.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "hplip-covscan.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "hplip-pcardext-disable.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "hplip-orblite-use-const.patch"
+                    "paths": [
+                        "hplip-scan-hpaio-include.patch",
+                        "hplip-hpaio-gcc14.patch",
+                        "hplip-scan-orblite-c99.patch",
+                        "hplip-covscan.patch",
+                        "hplip-pcardext-disable.patch",
+                        "hplip-orblite-use-const.patch"
+                    ]
                 },
                 {
                     "type": "shell",
