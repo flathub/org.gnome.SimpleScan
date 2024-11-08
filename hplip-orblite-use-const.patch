@@ -1,0 +1,49 @@
+diff --git a/scan/sane/orblite.c b/scan/sane/orblite.c
+index ba86640..cd658fa 100644
+--- a/scan/sane/orblite.c
++++ b/scan/sane/orblite.c
+@@ -63,28 +63,28 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
+ 		SANE_NAME_SCAN_TL_X, SANE_TITLE_SCAN_TL_X, SANE_DESC_SCAN_TL_X,  // name, title, desc
+ 		SANE_TYPE_FIXED, SANE_UNIT_MM, sizeof(SANE_Fixed),// type, unit, size
+ 		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
+-		SANE_CONSTRAINT_RANGE, (SANE_Char**)&SANE_rangeLeft  // constraint_type, constraint
++		SANE_CONSTRAINT_RANGE, (const SANE_Char**)&SANE_rangeLeft  // constraint_type, constraint
+ 	},
+ 
+ 	{
+ 		SANE_NAME_SCAN_TL_Y, SANE_TITLE_SCAN_TL_Y, SANE_DESC_SCAN_TL_Y,  // name, title, desc
+ 		SANE_TYPE_FIXED, SANE_UNIT_MM, sizeof(SANE_Fixed),// type, unit, size
+ 		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
+-		SANE_CONSTRAINT_RANGE, (SANE_Char**)&SANE_rangeTop  // constraint_type, constraint
++		SANE_CONSTRAINT_RANGE, (const SANE_Char**)&SANE_rangeTop  // constraint_type, constraint
+ 	},
+   
+ 	{
+ 		SANE_NAME_SCAN_BR_X, SANE_TITLE_SCAN_BR_X, SANE_DESC_SCAN_BR_X,  // name, title, desc
+ 		SANE_TYPE_FIXED, SANE_UNIT_MM, sizeof(SANE_Fixed),// type, unit, size
+ 		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
+-		SANE_CONSTRAINT_RANGE, (SANE_Char**)&SANE_rangeRight  // constraint_type, constraint
++		SANE_CONSTRAINT_RANGE, (const SANE_Char**)&SANE_rangeRight  // constraint_type, constraint
+ 	},
+ 
+ 	{
+ 		SANE_NAME_SCAN_BR_Y, SANE_TITLE_SCAN_BR_Y, SANE_DESC_SCAN_BR_Y,  // name, title, desc
+ 		SANE_TYPE_FIXED, SANE_UNIT_MM, sizeof(SANE_Fixed),// type, unit, size
+ 		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
+-		SANE_CONSTRAINT_RANGE, (SANE_Char**)&SANE_rangeBottom  // constraint_type, constraint
++		SANE_CONSTRAINT_RANGE, (const SANE_Char**)&SANE_rangeBottom  // constraint_type, constraint
+ 	},
+    
+ 	// optResolution,                                       // resolution group  
+@@ -92,7 +92,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
+ 		SANE_NAME_SCAN_RESOLUTION, SANE_TITLE_SCAN_RESOLUTION, SANE_DESC_SCAN_RESOLUTION, // name, title, desc
+ 		SANE_TYPE_INT, SANE_UNIT_DPI, sizeof(SANE_Word),  // type, unit, size,
+ 		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
+-		SANE_CONSTRAINT_WORD_LIST, (SANE_Char**)SANE_resolutions // constraint type, constraint
++		SANE_CONSTRAINT_WORD_LIST, (const SANE_Char**)SANE_resolutions // constraint type, constraint
+ 	},
+ 
+ 	// optMode,                                            // color/depth group
+-- 
+2.47.0
+

@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.SimpleScan",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "46",
+    "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
     "rename-desktop-file": "simple-scan.desktop",
     "command": "simple-scan",
@@ -207,14 +207,25 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.23.12.tar.gz",
-                    "sha256": "a76c2ac8deb31ddb5f0da31398d25ac57440928a0692dcb060a48daa718e69ed",
+                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.24.4.tar.gz",
+                    "sha256": "5d7643831893a5e2addf9d42d581a5dbfe5aaf023626886b8762c5645da0f1fb",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1327,
                         "stable-only": true,
                         "url-template": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-$version.tar.gz"
                     }
+                },
+                {
+                    "type": "patch",
+                    "paths": [
+                        "hplip-scan-hpaio-include.patch",
+                        "hplip-hpaio-gcc14.patch",
+                        "hplip-scan-orblite-c99.patch",
+                        "hplip-covscan.patch",
+                        "hplip-pcardext-disable.patch",
+                        "hplip-orblite-use-const.patch"
+                    ]
                 },
                 {
                     "type": "shell",
