@@ -164,8 +164,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/alexpevzner/sane-airscan.git",
-                    "commit": "3a99066aefec5f8577cacc99a40c1a7e79443a34",
-                    "tag": "0.99.29",
+                    "commit": "1ff182b4c980d1e76b27d5875006790cb59d73f3",
+                    "tag": "0.99.32",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
