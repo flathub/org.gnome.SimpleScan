@@ -164,8 +164,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/alexpevzner/sane-airscan.git",
-                    "commit": "1ff182b4c980d1e76b27d5875006790cb59d73f3",
-                    "tag": "0.99.32",
+                    "commit": "0ed6a1421352c94d10ca23cec55c4e390f62c316",
+                    "tag": "0.99.33",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -207,8 +207,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.24.4.tar.gz",
-                    "sha256": "5d7643831893a5e2addf9d42d581a5dbfe5aaf023626886b8762c5645da0f1fb",
+                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.25.2.tar.gz",
+                    "sha256": "e872ff28eb2517705a95f6e1839efa1e50a77a33aae8905278df2bd820919653",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1327,
@@ -267,8 +267,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/simple-scan.git",
-                    "commit": "a42cc7bfba3766ddeaf8080ae7956951068a699d",
-                    "tag": "46.0",
+                    "commit": "e17b63729571d994f1cf976fc5e3dbe114f62111",
+                    "tag": "48.1",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
