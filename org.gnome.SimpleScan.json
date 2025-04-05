@@ -266,16 +266,12 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/simple-scan.git",
-                    "commit": "a42cc7bfba3766ddeaf8080ae7956951068a699d",
-                    "tag": "46.0",
+                    "commit": "e17b63729571d994f1cf976fc5e3dbe114f62111",
+                    "tag": "48.1",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "simple-scan-Use-RDNN-app-ID.patch"
                 }
             ]
         }
