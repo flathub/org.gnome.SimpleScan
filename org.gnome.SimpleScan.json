@@ -56,7 +56,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/sane-project/backends.git",
-                    "commit": "c6b90dc2114337253dc327a69ce5bc42d4fc6581",
+                    "commit": "c7e4b5e35e3d614d2b1181d760a717bfc395a203",
                     "tag": "1.4.0",
                     "x-checker-data": {
                         "type": "git",
