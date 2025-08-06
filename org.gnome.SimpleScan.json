@@ -56,7 +56,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/sane-project/backends.git",
-                    "commit": "c6b90dc2114337253dc327a69ce5bc42d4fc6581",
+                    "commit": "c7e4b5e35e3d614d2b1181d760a717bfc395a203",
                     "tag": "1.4.0",
                     "x-checker-data": {
                         "type": "git",
@@ -164,8 +164,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/alexpevzner/sane-airscan.git",
-                    "commit": "b8fe4c54283c81042c1223d87c07ef97999d348a",
-                    "tag": "0.99.35",
+                    "commit": "48cfe8d3ae4ad22006fa002852c9363627d0f78d",
+                    "tag": "0.99.36",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -207,8 +207,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.25.2.tar.gz",
-                    "sha256": "e872ff28eb2517705a95f6e1839efa1e50a77a33aae8905278df2bd820919653",
+                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.25.6.tar.gz",
+                    "sha256": "a6af314a7af0572f2ab6967b2fe68760e64d74628ef0e6237f8504d81047edbe",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1327,
