@@ -1,9 +1,8 @@
 {
     "id": "org.gnome.SimpleScan",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "48",
+    "runtime-version": "49",
     "sdk": "org.gnome.Sdk",
-    "rename-desktop-file": "simple-scan.desktop",
     "command": "simple-scan",
     "finish-args": [
         "--share=ipc",
@@ -29,7 +28,6 @@
         "*.a"
     ],
     "modules": [
-        "shared-modules/libusb/libusb.json",
         {
             "name": "libgusb",
             "buildsystem": "meson",
@@ -266,8 +264,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/simple-scan.git",
-                    "commit": "e17b63729571d994f1cf976fc5e3dbe114f62111",
-                    "tag": "48.1",
+                    "commit": "ec0908dcd9ab07ea2c9a8b8254f5eba51e5d6ef8",
+                    "tag": "49.0",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
