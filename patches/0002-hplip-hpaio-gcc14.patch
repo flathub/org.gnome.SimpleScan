@@ -1,5 +1,15 @@
+From 92818d4462e5c0ff4aae5c1d1254d6b2938d240e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Hubert=20Figui=C3=A8re?= <hub@figuiere.net>
+Date: Sun, 21 Sep 2025 11:50:00 -0400
+Subject: [PATCH 2/6] hplip-hpaio-gcc14
+
+---
+ scan/sane/hpaio.c   |  2 +-
+ scan/sane/orblite.c | 13 ++++++++-----
+ 2 files changed, 9 insertions(+), 6 deletions(-)
+
 diff --git a/scan/sane/hpaio.c b/scan/sane/hpaio.c
-index 57d1dde..3475929 100644
+index 087efb1..7c5784c 100644
 --- a/scan/sane/hpaio.c
 +++ b/scan/sane/hpaio.c
 @@ -379,7 +379,7 @@ extern SANE_Status sane_hpaio_get_devices(const SANE_Device ***deviceList, SANE_
@@ -12,10 +22,10 @@ index 57d1dde..3475929 100644
  
     return SANE_STATUS_GOOD;
 diff --git a/scan/sane/orblite.c b/scan/sane/orblite.c
-index 2eb7aba..4eaa468 100644
+index ba86640..60c5671 100644
 --- a/scan/sane/orblite.c
 +++ b/scan/sane/orblite.c
-@@ -101,7 +101,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
+@@ -100,7 +100,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
  		SANE_NAME_SCAN_MODE, SANE_TITLE_SCAN_MODE, SANE_DESC_SCAN_MODE, // name, title, desc
  		SANE_TYPE_STRING, SANE_UNIT_NONE, 256,  // type, unit, size,
  		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
@@ -24,7 +34,7 @@ index 2eb7aba..4eaa468 100644
  	},
   
  	// optSource, 
-@@ -109,7 +109,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
+@@ -108,7 +108,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
  		SANE_NAME_SCAN_SOURCE, SANE_TITLE_SCAN_SOURCE, SANE_DESC_SCAN_SOURCE, // name, title, desc
  		SANE_TYPE_STRING, SANE_UNIT_NONE, 256,  // type, unit, size,
  		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
@@ -33,7 +43,7 @@ index 2eb7aba..4eaa468 100644
  	},
   
  	// optPaperSize, 
-@@ -117,7 +117,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
+@@ -116,7 +116,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
  		SANE_NAME_PAPER_SIZE, SANE_TITLE_PAPER_SIZE, SANE_DESC_PAPER_SIZE, // name, title, desc
  		SANE_TYPE_STRING, SANE_UNIT_NONE, 256,  // type, unit, size,
  		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
@@ -42,7 +52,7 @@ index 2eb7aba..4eaa468 100644
  	},
   
  	// optPaperSize, 
-@@ -125,7 +125,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
+@@ -124,7 +124,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
  		SANE_NAME_PAPER_SIZE, SANE_TITLE_PAPER_SIZE, SANE_DESC_PAPER_SIZE, // name, title, desc
  		SANE_TYPE_INT, SANE_UNIT_DPI, sizeof(SANE_Word),  // type, unit, size,
  		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
@@ -51,7 +61,7 @@ index 2eb7aba..4eaa468 100644
  	},
  #ifdef NOTDEF
  // default template
-@@ -274,6 +274,7 @@ orblite_open (SANE_String_Const devicename, SANE_Handle * handle)
+@@ -273,6 +273,7 @@ orblite_open (SANE_String_Const devicename, SANE_Handle * handle)
  	SANE_Auth_Callback authorize;
  	const SANE_Device *** device_list;
  	SANE_Bool local_only;
@@ -59,7 +69,7 @@ index 2eb7aba..4eaa468 100644
  	
  	
  	// Allocate handle, set all handle values to zero
-@@ -305,7 +306,9 @@ orblite_open (SANE_String_Const devicename, SANE_Handle * handle)
+@@ -304,7 +305,9 @@ orblite_open (SANE_String_Const devicename, SANE_Handle * handle)
  	if (stat != SANE_STATUS_GOOD)
  		return stat;
  
@@ -70,3 +80,6 @@ index 2eb7aba..4eaa468 100644
  	if (stat == SANE_STATUS_GOOD)
  		*handle = g_handle;
  
+-- 
+2.50.1
+

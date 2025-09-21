@@ -1,8 +1,17 @@
+From a98a49dc695c6a97d864019ba2701c1bb8eb86d2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Hubert=20Figui=C3=A8re?= <hub@figuiere.net>
+Date: Sun, 21 Sep 2025 11:55:16 -0400
+Subject: [PATCH 5/6] hplip-orblite-use-const
+
+---
+ scan/sane/orblite.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
 diff --git a/scan/sane/orblite.c b/scan/sane/orblite.c
-index ba86640..cd658fa 100644
+index 782303a..4eaa468 100644
 --- a/scan/sane/orblite.c
 +++ b/scan/sane/orblite.c
-@@ -63,28 +63,28 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
+@@ -64,28 +64,28 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
  		SANE_NAME_SCAN_TL_X, SANE_TITLE_SCAN_TL_X, SANE_DESC_SCAN_TL_X,  // name, title, desc
  		SANE_TYPE_FIXED, SANE_UNIT_MM, sizeof(SANE_Fixed),// type, unit, size
  		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
@@ -35,7 +44,7 @@ index ba86640..cd658fa 100644
  	},
     
  	// optResolution,                                       // resolution group  
-@@ -92,7 +92,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
+@@ -93,7 +93,7 @@ SANE_Option_Descriptor	DefaultOrbOptions[] = {
  		SANE_NAME_SCAN_RESOLUTION, SANE_TITLE_SCAN_RESOLUTION, SANE_DESC_SCAN_RESOLUTION, // name, title, desc
  		SANE_TYPE_INT, SANE_UNIT_DPI, sizeof(SANE_Word),  // type, unit, size,
  		SANE_CAP_SOFT_SELECT | SANE_CAP_SOFT_DETECT,      // cap(ability)
@@ -45,5 +54,5 @@ index ba86640..cd658fa 100644
  
  	// optMode,                                            // color/depth group
 -- 
-2.47.0
+2.50.1
 

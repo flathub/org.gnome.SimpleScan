@@ -1,5 +1,14 @@
+From d73b5df22b11d96d21453a77726e48c6966e3f24 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Hubert=20Figui=C3=A8re?= <hub@figuiere.net>
+Date: Sun, 21 Sep 2025 11:50:19 -0400
+Subject: [PATCH 3/6] hplip-scan-orblite-c99
+
+---
+ scan/sane/orblite.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
 diff --git a/scan/sane/orblite.c b/scan/sane/orblite.c
-index ba86640..2eb7aba 100644
+index 60c5671..782303a 100644
 --- a/scan/sane/orblite.c
 +++ b/scan/sane/orblite.c
 @@ -20,6 +20,7 @@
@@ -19,3 +28,6 @@ index ba86640..2eb7aba 100644
     if (ps->bb_handle)
     {
        dlclose(ps->bb_handle);
+-- 
+2.50.1
+
