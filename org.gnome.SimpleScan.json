@@ -200,6 +200,7 @@
                 "--with-cupsbackenddir=/app/lib/cups/backend"
             ],
             "build-options": {
+                "cflags": "-std=gnu18 -Wno-error=implicit-function-declaration",
                 "cppflags": "-I/app/include/libusb-1.0"
             },
             "sources": [
@@ -217,11 +218,11 @@
                 {
                     "type": "patch",
                     "paths": [
-                        "hplip-scan-hpaio-include.patch",
-                        "hplip-hpaio-gcc14.patch",
-                        "hplip-scan-orblite-c99.patch",
-                        "hplip-covscan.patch",
-                        "hplip-orblite-use-const.patch"
+                        "patches/0001-hplip-scan-hpaio-include.patch",
+                        "patches/0002-hplip-hpaio-gcc14.patch",
+                        "patches/0003-hplip-scan-orblite-c99.patch",
+                        "patches/0004-hplip-covscan.patch",
+                        "patches/0005-hplip-orblite-use-const.patch"
                     ]
                 },
                 {

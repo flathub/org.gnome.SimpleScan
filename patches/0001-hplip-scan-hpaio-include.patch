@@ -1,3 +1,8 @@
+From 66c0786b5d37fefb55ef6474321ba4d88dd6183d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Hubert=20Figui=C3=A8re?= <hub@figuiere.net>
+Date: Sun, 21 Sep 2025 11:49:40 -0400
+Subject: [PATCH 1/6] hplip-scan-hpaio-include
+
 scam/sane/hpaio.c: Include orblite.h for more function prototypes
 
 Otherwise the build fails with compilers which do not support
@@ -5,8 +10,12 @@ implicit function declarations.
 
 Submitted upstream: <https://bugs.launchpad.net/hplip/+bug/1997875>
 
+---
+ scan/sane/hpaio.c | 1 +
+ 1 file changed, 1 insertion(+)
+
 diff --git a/scan/sane/hpaio.c b/scan/sane/hpaio.c
-index d342626822fc2190..57d1ddea32fb5816 100644
+index 62d14eb..087efb1 100644
 --- a/scan/sane/hpaio.c
 +++ b/scan/sane/hpaio.c
 @@ -50,6 +50,7 @@
@@ -17,3 +26,6 @@ index d342626822fc2190..57d1ddea32fb5816 100644
  #include "orblitei.h"
  
  
+-- 
+2.50.1
+
