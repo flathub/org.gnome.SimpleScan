@@ -266,8 +266,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/simple-scan.git",
-                    "commit": "ec0908dcd9ab07ea2c9a8b8254f5eba51e5d6ef8",
-                    "tag": "49.0",
+                    "commit": "142af3c107b143a6cb66880b6530d4583189ffee",
+                    "tag": "49.0.1",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
