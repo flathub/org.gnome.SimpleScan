@@ -264,13 +264,13 @@
             "buildsystem": "meson",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/simple-scan.git",
-                    "commit": "ec0908dcd9ab07ea2c9a8b8254f5eba51e5d6ef8",
-                    "tag": "49.0",
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/simple-scan/49/simple-scan-49.0.1.tar.xz",
+                    "sha256": "e19762422663ef4bf5d39f6e75f4d61a8de1813729a96e57e04e81764e01eae2",
                     "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^([\\d.]+)$"
+                        "type": "gnome",
+                        "is-important": true,
+                        "name": "simple-scan"
                     }
                 }
             ]
