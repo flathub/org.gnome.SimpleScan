@@ -1,6 +1,6 @@
-diff -ur b/configure.in a/configure.in
---- b/configure.in	2025-07-18 14:59:36.000000000 +0200
-+++ a/configure.in	2025-10-22 19:03:45.319661443 +0200
+diff -ur a/configure.in b/configure.in
+--- a/configure.in	2025-07-18 14:59:36.000000000 +0200
++++ b/configure.in	2025-10-22 19:03:45.319661443 +0200
 @@ -657,7 +657,7 @@
           AC_MSG_ERROR([Failed to determine the Python include directory. Please check your Python installation.], 6)
        fi
