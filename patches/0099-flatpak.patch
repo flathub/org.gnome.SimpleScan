@@ -1,0 +1,12 @@
+diff -ur b/configure.in a/configure.in
+--- b/configure.in	2025-07-18 14:59:36.000000000 +0200
++++ a/configure.in	2025-10-22 19:03:45.319661443 +0200
+@@ -657,7 +657,7 @@
+          AC_MSG_ERROR([Failed to determine the Python include directory. Please check your Python installation.], 6)
+       fi
+    fi
+-   PYTHONEXECDIR=`$PYTHON -c "from distutils.sysconfig import get_python_lib; print (get_python_lib(1));" 2>/dev/null || echo "not found"`
++   PYTHONEXECDIR=`$PYTHON -c "from distutils.sysconfig import get_python_lib; print (get_python_lib(1, prefix = '${prefix}'));" 2>/dev/null || echo "not found"`
+    if test "$PYTHONEXECDIR" = "not found"; then
+       AC_MSG_WARN([Failed to determine the Python executable directory. Retry using sysconfig module.])
+       PYTHONEXECDIR=`$PYTHON -c "import sysconfig; print(sysconfig.get_path('platlib'))" 2>/dev/null || echo "not found"`

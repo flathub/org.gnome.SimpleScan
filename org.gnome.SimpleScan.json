@@ -222,7 +222,9 @@
                         "patches/0002-hplip-hpaio-gcc14.patch",
                         "patches/0003-hplip-scan-orblite-c99.patch",
                         "patches/0004-hplip-covscan.patch",
-                        "patches/0005-hplip-orblite-use-const.patch"
+                        "patches/0005-hplip-orblite-use-const.patch",
+                        "patches/0017-Workaround-patch-for-missing-Python3-transition-of-t.patch",
+                        "patches/0099-flatpak.patch"
                     ]
                 },
                 {
@@ -249,9 +251,6 @@
             "post-install": [
                 "[ -f \"${FLATPAK_DEST}/etc/hp/hplip.conf\" ] || install -p -D \"hplip.conf\" -t \"${FLATPAK_DEST}/etc/hp/\";",
                 "echo 'hpaio' > hpaio && install -p -D hpaio -t \"${FLATPAK_DEST}/etc/sane.d/dll.d/\";"
-            ],
-            "modules": [
-                "shared-modules/python2.7/python-2.7.json"
             ],
             "cleanup": [
                 "/lib/cups",
