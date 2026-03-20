@@ -18,6 +18,7 @@
         "/lib/pkgconfig",
         "/man",
         "/share/aclocal",
+        "/share/doc",
         "/share/gir-1.0",
         "/share/girepository-1",
         "/share/gtk-doc",
