@@ -162,8 +162,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/alexpevzner/sane-airscan.git",
-                    "commit": "48cfe8d3ae4ad22006fa002852c9363627d0f78d",
-                    "tag": "0.99.36",
+                    "commit": "03eddd0d8058c482462bccabadad0e56e8400cb4",
+                    "tag": "0.99.37",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -263,8 +263,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/simple-scan/49/simple-scan-49.1.tar.xz",
-                    "sha256": "9ae8d4151ecaf95845eb9f99b436d579c838f2cf02763fba3bc03780251be334",
+                    "url": "https://download.gnome.org/sources/simple-scan/50/simple-scan-50.0.tar.xz",
+                    "sha256": "cc32b561ae227182d31a94466632e311723756e3ac90538c3c7e2a2c9aaa4a09",
                     "x-checker-data": {
                         "type": "gnome",
                         "is-important": true,
