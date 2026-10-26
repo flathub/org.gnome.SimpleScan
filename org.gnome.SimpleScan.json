@@ -1,7 +1,7 @@
 {
     "id": "org.gnome.SimpleScan",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "50",
+    "runtime-version": "51",
     "sdk": "org.gnome.Sdk",
     "command": "simple-scan",
     "finish-args": [
@@ -102,8 +102,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libevent/libevent.git",
-                    "commit": "5df3037d10556bfcb675bc73e516978b75fc7bc7",
-                    "tag": "release-2.1.12-stable",
+                    "commit": "79ddfb460847999b807cba76d04e73891f29c6ee",
+                    "tag": "release-2.1.13-stable",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^release-([\\d.]+)-stable$"
@@ -162,8 +162,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/alexpevzner/sane-airscan.git",
-                    "commit": "03eddd0d8058c482462bccabadad0e56e8400cb4",
-                    "tag": "0.99.37",
+                    "commit": "9da18d88c88f542671b24fc0433dd7d69dcb0132",
+                    "tag": "0.99.38",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
@@ -206,8 +206,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.25.8.tar.gz",
-                    "sha256": "1cf6d6c28735435c8eb6646e83bcfb721e51c4b1f0e8cf9105a6faf96dc9ad25",
+                    "url": "https://downloads.sourceforge.net/sourceforge/hplip/hplip-3.26.6.tar.gz",
+                    "sha256": "5fb2235a9cb6ec07cb4786c4066b151359c301324d54aaabf69ae7eef35606b3",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1327,
