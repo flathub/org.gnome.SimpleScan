@@ -224,7 +224,8 @@
                         "patches/0004-hplip-covscan.patch",
                         "patches/0005-hplip-orblite-use-const.patch",
                         "patches/0017-Workaround-patch-for-missing-Python3-transition-of-t.patch",
-                        "patches/0099-flatpak.patch"
+                        "patches/0099-flatpak.patch",
+                        "patches/hplip-gcc15-stdc23.patch"
                     ]
                 },
                 {
